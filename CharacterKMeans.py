@@ -22,7 +22,8 @@ def character_distance(c1, c2, method="simpson", squared=True):
         dist = np.trapz(abs_diff, dx=1)
     else:
         raise ValueError("Invalid method param given")
-    dist = dist**(2)
+    if squared:
+        dist = dist**(2)
 
     return dist
 
@@ -57,10 +58,10 @@ def calculate_centers(chars, clusters):
 # is square root of sum of squares of columns
 # returns: list of k tuples representing clusters which hold (centerlist, charnames)
 def characterKMeans(chars, k, max_iter=100):
-    cent_keys = np.random.choice(chars.keys(), size=k)
+    cent_keys = np.random.choice(chars.keys(), size=k, replace=False)
     centers = []
-    for k in cent_keys:
-        centers.append(chars[k])
+    for key in cent_keys:
+        centers.append(chars[key])
 
     for it in range(max_iter):
         clusters = char_clusters(chars, centers)

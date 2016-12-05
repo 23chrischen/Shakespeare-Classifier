@@ -25,7 +25,7 @@ def compare(l1, l2):
 
 
 def main():
-    charDict = ParsePlay.getAllTopChars(1) # Char Dict contains a bunch of chars w/ names as keys
+    charDict = ParsePlay.getAllTopChars(5) # Char Dict contains a bunch of chars w/ names as keys
     charDictScaled = ScaleTime.rescaleTime(charDict)
     charScores = SentimentAnalysis.turn_lines_to_score(charDictScaled)
     charScoresInterpolated = Interpolate.interpolate_chars_uniformly(charScores, 100)
