@@ -40,5 +40,5 @@ def main():
     newWithPredicted = CharacterKMeans.predictCluster(test, zip(*clusters)[0], charScoresScaled)
     pp.pprint(newWithPredicted)
 
-
-main()
+if __name__ == '__main__':
+    main()
