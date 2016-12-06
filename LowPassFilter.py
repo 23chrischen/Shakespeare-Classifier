@@ -15,6 +15,6 @@ def lowPassAllChars(chars, window_ratio=.1, poly_order=3):
     newDict = {}
     for ch, sc in chars.items():
         unzip = zip(*sc)
-        newDict[ch] = lowPass(unzip[1])
+        newDict[ch] = lowPass(unzip[1], window_ratio=window_ratio, poly_order=poly_order)
 
     return newDict
